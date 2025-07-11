@@ -471,7 +471,7 @@ input#r1:checked ~ .carousel-indicators label:nth-child(1), input#r2:checked ~ .
   justify-content: center;
   gap: 2rem;
   padding: 2.5rem 3.5rem;
-  background: rgba(255 255 255 / 0.12);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 25px;
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -480,17 +480,18 @@ input#r1:checked ~ .carousel-indicators label:nth-child(1), input#r2:checked ~ .
     inset 0 0 40px rgba(255, 255, 255, 0.15);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #004d40;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 2rem auto;
   overflow: hidden;
 }
 
+/* Info card styling */
 .info-card {
   display: flex;
   align-items: center;
   gap: 1.3rem;
   flex: 1 1 280px;
-  background: rgba(255 255 255 / 0.35);
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 18px;
   padding: 1.6rem 2rem;
   box-shadow:
@@ -498,13 +499,16 @@ input#r1:checked ~ .carousel-indicators label:nth-child(1), input#r2:checked ~ .
     inset 0 0 10px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .info-card:hover {
   transform: translateY(-6px);
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.18),
-    inset 0 0 15px rgba(255, 255, 255, 0.4); }
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
 
 .info-card i {
   font-size: 2.6rem;
@@ -525,19 +529,19 @@ input#r1:checked ~ .carousel-indicators label:nth-child(1), input#r2:checked ~ .
   color: #004d40cc;
 }
 
-/* 📱 Mobile Optimization: 2 cards side by side */ @media (max-width: 768px) {
+/* Medium screens: switch to grid layout with 2 columns */
+@media (max-width: 600px) {
   .glass-info-strip {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 1.2rem 1rem;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding: 1.2rem;
   }
 
   .info-card {
-    padding: 1.2rem 1.2rem;
+    padding: 1.2rem;
     gap: 1rem;
     flex: 1 1 auto;
-    
   }
 
   .info-card i {
@@ -553,6 +557,18 @@ input#r1:checked ~ .carousel-indicators label:nth-child(1), input#r2:checked ~ .
   }
 }
 
+/* Small screens: single column layout */
+@media (max-width: 480px) {
+  .glass-info-strip {
+    display: block;
+    padding: 1rem;
+  }
+
+  .info-card {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
 
 .footer-content a {
     color: rgb(0, 10, 68);
