@@ -372,7 +372,8 @@ background-color: rgba(255, 255, 255, 0.2);
 .carousel-card {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) scale(0.95); /* Adjust origin */
   width: 85%;
   padding: 30px;
   background: rgba(255, 255, 255, 0.25);
@@ -381,8 +382,8 @@ background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.4s ease, transform 0.4s ease; }
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
 
 .carousel-card p {
   font-size: 1.1rem;
